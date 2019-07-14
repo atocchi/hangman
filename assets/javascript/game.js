@@ -125,7 +125,7 @@ let charCode = (typeof e.which == "number") ? e.which : e.keyCode;
         keyChecker(guessKey.toLowerCase())
         let n = okKeys.indexOf(guessKey.toLowerCase())
         okKeys.splice(n,1)
-        alert(okKeys)
+        // alert(okKeys)
 
         if (goodKey == false) {
             alert("You have pressed an incorrect key, or you already guessed this letter!")
@@ -137,9 +137,12 @@ let charCode = (typeof e.which == "number") ? e.which : e.keyCode;
         //calls the guess function to check the key pressed against (even converts it lower case)
         guess(guessKey.toLowerCase())
         check(correct)
-        alert(wrong)
+        wrongo.textContent = (wrong)
+        // pushes picked letter to the array
         letterChoice.push(guessKey);
-        alert(letterChoice);
+        // writes text of array on html
+        picked.textContent = (letterChoice);
+        // alert(letterChoice);
         //this checks if the word is correct first before proceedding
         if (correct >= 1) {
             for (let i =0; i <compChoice.length; i++){
@@ -149,7 +152,7 @@ let charCode = (typeof e.which == "number") ? e.which : e.keyCode;
                 revealedText = compChoice[revealed]
                 let revealedID = document.getElementById([i])
 
-                if (guessKey == revealedText){
+                if (guessKey.toLowerCase() == revealedText){
                 // console.log(revealed)
                 revealedID.textContent = (guessKey)
                 }
@@ -160,11 +163,11 @@ let charCode = (typeof e.which == "number") ? e.which : e.keyCode;
             }
         //calls the losschecker function to see if the player lost
         lossChecker(wrong)
-        alert(lose)
+        // alert(lose)
 
         //calls the winchecker function to see if the player won
         winChecker(correctLetter)
-        alert(win)
+        // alert(win)
     //checks again for a loss, to see if players input changed the status
     if (lose == true) {
         alert("You Lose")

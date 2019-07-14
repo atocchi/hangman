@@ -7,28 +7,44 @@
     <title>Document</title>
     <script src="./assets/javascript/game.js"></script>
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Bahianita&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    <header class="jumbotron">Dota 2 Hangman</header>
-    <div class="container">
-        <div clas="row">
-        <div class="col-md 4">
-           <div class="card" id="picked"></div>
-        </div> 
+    <header class="jumbotron" style ="font-family: 'Bahianita', cursive; font-size: 100px;">Dota 2 Hangman</header>
+    <div class="container-fluid">
+     <div class="row">
         <div class="col-md 4">
                 <div class="card" style="width: 18rem;">
                         <img src="./assets/images/icon.png" class="card-img-top" alt="...">
                         <div class="card-body">
+                          <h5 class="card-title" id="picked"></h5>
+                          <p class="card-text">See letters you have picked above!.</p>
+                        </div>
+                      </div>
+        </div> 
+        <div class="col-md">
+                <div class="card" style="width: 18rem;">
+                        <img src="./assets/images/icon.png" class="card-img-top" alt="dotalogo">
+                        <div class="card-body">
                           <h5 class="card-title" id=blank></h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <p class="card-text">Choose a letter to fill in the name of the Hero, you get 12 chances</p>
                           <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
                       </div>
         </div>
-        <div class="col-md 4" id="guesses"></div>
+        <div class="col-md" id="guesses">
+                <div class="card" style="width: 18rem;">
+                        <img src="./assets/images/icon.png" class="card-img-top" alt="dotalogo">
+                        <div class="card-body">
+                          <h5 class="card-title">Wrong Letter Count</h5>
+                          <h1 class="card-text" id="wrongo"></h1>
+                        </div>
+                      </div>
         </div>
+      </div>
     </div>
+
     
 </body>
 <script>
