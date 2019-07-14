@@ -39,7 +39,7 @@ function winChecker (a) {
 
 // creates a function to break strings up into it's individual characters
 function letterMaker(a) {
-for (let i = 0; i < a.length; i++) {
+for ( i = 0; i < a.length; i++) {
     //creates an array out of the computers word choice
     let letters = (a.charAt([i]))
    compChoice.push(letters)
@@ -140,6 +140,24 @@ let charCode = (typeof e.which == "number") ? e.which : e.keyCode;
         alert(wrong)
         letterChoice.push(guessKey);
         alert(letterChoice);
+        //this checks if the word is correct first before proceedding
+        if (correct >= 1) {
+            for (let i =0; i <compChoice.length; i++){
+                //grabs the ID by index and then stores it
+                let revealed = document.getElementById([i]).getAttribute("id")
+                //unencrypts the letter of the document using the index
+                revealedText = compChoice[revealed]
+                let revealedID = document.getElementById([i])
+
+                if (guessKey == revealedText){
+                // console.log(revealed)
+                revealedID.textContent = (guessKey)
+                }
+                
+                
+                
+             }
+            }
         //calls the losschecker function to see if the player lost
         lossChecker(wrong)
         alert(lose)

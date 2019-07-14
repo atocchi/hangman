@@ -6,28 +6,54 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="./assets/javascript/game.js"></script>
-  
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    <div id=blank></div>
+    <header class="jumbotron">Dota 2 Hangman</header>
+    <div class="container">
+        <div clas="row">
+        <div class="col-md 4">
+           <div class="card" id="picked"></div>
+        </div> 
+        <div class="col-md 4">
+                <div class="card" style="width: 18rem;">
+                        <img src="./assets/images/icon.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title" id=blank></h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                      </div>
+        </div>
+        <div class="col-md 4" id="guesses"></div>
+        </div>
+    </div>
     
 </body>
 <script>
 //Html reliant JS below, needs to excute before the rest of the script or returns null
 
     // creates the blank guess template
-for (i = 0; i <compChoice.length; i++){
+for (let i = 0; i <compChoice.length; i++){
 let blankDiv = document.getElementById("blank");
-let newP =document.createElement("p");
-newP.textContent = "_"
+let newP =document.createElement("span");
+newP.textContent = " _ "
 //sets ID to index so that the player can't cheat with inspect element
-// newP.setAttribute("id",[i])
+newP.setAttribute("id",[i])
 blankDiv.appendChild(newP);
 }
-for (i =0; i <compChoice.length; i++){
-    let revealed = document.getElementById(compChoice[i]) 
-    alert(String(revealed))
- }
+
+// for (let i =0; i <compChoice.length; i++){
+//     let revealed = document.getElementById([i]).getAttribute("id")
+//     console.log(revealed)
+//     revealedText = compChoice[revealed]
+//     console.log(revealedText)
+//     revealed.textContent = (guessKey)
+    
+    
+    
+//  }
 </script>
 
 </html> 
