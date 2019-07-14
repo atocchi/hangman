@@ -1,8 +1,8 @@
 
 // Possible Computer Guesses
-let heroes = ["pudge","windranger","drow","doom"]
+let heroes = ["abaddon","alchemist","axe","beastmaster","brewmaster","bristleback","centaur","chaos knight","pudge","windranger","drow","doom"]
 // RNG to decide which string to take from the array
-let choice = Math.floor(Math.random() * 4)
+let choice = Math.floor(Math.random() * heroes.length)
 // Computers pick is definted as heroChoice
 let heroChoice = heroes[choice]
 // create an array of letter guessed
@@ -22,7 +22,7 @@ let lose = false
 //same for win
 let win = false
 //array to define what keystrokes the program expects
-let okKeys = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+let okKeys = [" ","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 
 //function to run last, checks for 12 wrongs, causes lose state (takes any argument)
 function lossChecker (a) {
