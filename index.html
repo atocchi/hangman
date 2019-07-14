@@ -29,7 +29,8 @@
                         <div class="card-body">
                           <h3 class="card-title" id=blank></h3>
                           <p class="card-text">Choose a letter to fill in the name of the Hero, you get 12 chances</p>
-                          <a href="#" class="btn btn-primary">Reset Game</a>
+                          <h2>WINS:<p id="wins"></p></h2>
+                          <h2>LOSSES:<p id="losses"></p></h2>
                         </div>
                       </div>
         </div>
@@ -50,15 +51,7 @@
 <script>
 //Html reliant JS below, needs to excute before the rest of the script or returns null
 
-    // creates the blank guess template
-for (let i = 0; i <compChoice.length; i++){
-let blankDiv = document.getElementById("blank");
-let newP =document.createElement("span");
-newP.textContent = " _ "
-//sets ID to index so that the player can't cheat with inspect element
-newP.setAttribute("id",[i])
-blankDiv.appendChild(newP);
-}
+start()
 
 // for (let i =0; i <compChoice.length; i++){
 //     let revealed = document.getElementById([i]).getAttribute("id")

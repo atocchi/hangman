@@ -1,6 +1,6 @@
 
 // Possible Computer Guesses
-let heroes = ["abaddon","alchemist","axe","beastmaster","brewmaster","bristleback","centaur","chaos knight","pudge","windranger","drow","doom"]
+let heroes = ["abaddon","alchemist","axe","beastmaster","brewmaster","bristleback","centaur","chaos knight","clockwerk","pudge","windranger","drow","doom"]
 // RNG to decide which string to take from the array
 let choice = Math.floor(Math.random() * heroes.length)
 // Computers pick is definted as heroChoice
@@ -23,6 +23,60 @@ let lose = false
 let win = false
 //array to define what keystrokes the program expects
 let okKeys = [" ","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+//used to count loses
+let lossesCount = 0
+//used to count wins
+let winsCount = 0
+//remove element function
+// function remove(a) {
+// let oldText = document.getElementById(a)
+// oldText.h3.removeChild(oldText)
+// }
+
+function start (x) {
+    let blankDiv = document.getElementById("blank");
+    let tempH =document.createElement("h3");
+    tempH.setAttribute("id","temp")
+    blankDiv.appendChild(tempH)
+    for (let i = 0; i <compChoice.length; i++){
+    let tempH = document.getElementById("temp");
+    let newP =document.createElement("span");
+    newP.textContent = " _ "
+    //sets ID to index so that the player can't cheat with inspect element
+    newP.setAttribute("id",[i])
+    tempH.appendChild(newP);
+    }
+    }
+
+
+
+
+//reset function resets everything
+function reset(x) {
+blankDiv = document.getElementById("blank");
+tempH = document.getElementById("temp")
+blankDiv.removeChild(tempH)
+// start()
+choice = Math.floor(Math.random() * heroes.length)
+heroChoice = heroes[choice]
+letterChoice = []
+compChoice = []
+incorrectLetters = 0
+guessKey = ""
+correct = 0
+wrong = 0
+correctLetter = 0
+lose = false
+win = false
+okKeys = [" ","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+letterMaker(heroChoice)
+console.log(letterChoice)
+console.log(compChoice)
+start()
+}
+
+
+
 
 //function to run last, checks for 12 wrongs, causes lose state (takes any argument)
 function lossChecker (a) {
@@ -105,18 +159,21 @@ let grabKey = document.getElementById("heroes");
 grabKey.onkeypress = function(e) {
 e = e || window.event;
 let charCode = (typeof e.which == "number") ? e.which : e.keyCode;
-    //checks for a lose, locking the game on loss
-    if (lose == true) {
-        alert("You Lose")
-    }
-    //checks for a win, locking the game on win
-    else if (win == true) {
-        alert("You Win")
-    }
+    
+// ////commenting this code out as we are not locking game on win or loss
+// //checks for a lose, locking the game on loss
+//     if (lose == true) {
+//         alert("You Lose")
+//     }
+//     //checks for a win, locking the game on win
+//     else if (win == true) {
+//         alert("You Win")
+//     }
 
 
 
-    else if (charCode > 0) {
+    // else 
+    if (charCode > 0) {
         alert("You Guessed: " + String.fromCharCode(charCode))
      //Adds the keys pressed to the Array
         let guessKey = (String.fromCharCode(charCode));
@@ -137,6 +194,8 @@ let charCode = (typeof e.which == "number") ? e.which : e.keyCode;
         //calls the guess function to check the key pressed against (even converts it lower case)
         guess(guessKey.toLowerCase())
         check(correct)
+        wins.textContent = (winsCount)
+        losses.textContent =(lossesCount)
         wrongo.textContent = (wrong)
         // pushes picked letter to the array
         letterChoice.push(guessKey);
@@ -164,17 +223,21 @@ let charCode = (typeof e.which == "number") ? e.which : e.keyCode;
         //calls the losschecker function to see if the player lost
         lossChecker(wrong)
         // alert(lose)
-
+       
         //calls the winchecker function to see if the player won
         winChecker(correctLetter)
         // alert(win)
     //checks again for a loss, to see if players input changed the status
     if (lose == true) {
         alert("You Lose")
+        lossesCount = lossesCount + 1
+        reset()
     }
     //checks again for a win, to see if players input changed the status
     else if (win == true) {
         alert("You Win")
+        winsCount = winsCount + 1
+        reset()
     }
         }
     }
