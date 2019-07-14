@@ -70,8 +70,8 @@ lose = false
 win = false
 okKeys = [" ","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 letterMaker(heroChoice)
-console.log(letterChoice)
-console.log(compChoice)
+wrongo.textContent = (wrong)
+picked.textContent = (letterChoice);
 start()
 }
 
@@ -231,12 +231,14 @@ let charCode = (typeof e.which == "number") ? e.which : e.keyCode;
     if (lose == true) {
         alert("You Lose")
         lossesCount = lossesCount + 1
+        losses.textContent =(lossesCount)
         reset()
     }
     //checks again for a win, to see if players input changed the status
     else if (win == true) {
         alert("You Win")
         winsCount = winsCount + 1
+        wins.textContent = (winsCount)
         reset()
     }
         }
